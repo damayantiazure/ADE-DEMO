@@ -10,7 +10,7 @@ variables:
   #- group: ade-variables  
   LOCATION: "westeurope"
   AZURE_RESOURCE_GROUP: "ade-rg1"
-  AZURE_DEVCENTER: "devbox001"
+  AZURE_DEVCENTER: "devbox002"
   AZURE_PROJECT: ""
   AZURE_KEYVAULT: ""
   CATALOG_REPO: 'https://dev.azure.com/damayantib/customerpoc/_git/ade-demo'
