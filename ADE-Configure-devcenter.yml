@@ -54,6 +54,7 @@ steps:
       
       az deployment group create -g $AZURE_RESOURCE_GROUP -f ADE-Config/bicep/ade.bicep -p devcenterName=$DEVCENTERNAME catalogRepoUri=$CATALOG_REPO catalogRepoPat=$adopat adeProjectUser=$DEPLOYINGUSERID
       
+      # ADD Dev center as owner in the subscription
       AZURE_DEVCENTER_PRINCIPAL_ID=$(az resource list -n $DEVCENTERNAME --query [*].identity.principalId --out tsv)
       AZURE_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 
@@ -62,7 +63,8 @@ steps:
         --role Owner \
         --assignee-object-id $AZURE_DEVCENTER_PRINCIPAL_ID \
         --assignee-principal-type ServicePrincipal
-
+        
+      # Add additional users into devcenter
       # DEVUSER=user@contoso.com
       # DEVUSERID=$(az ad user show --id $DEVUSER --query id -o tsv)
       # SUBID=$(az account show --query id -o tsv)
@@ -71,3 +73,5 @@ steps:
 
       #Dev box
       # az role assignment create --assignee $DEVUSER --role "DevCenter Dev Box User" --scope $PROJECTID
+  env:
+    adopat: $(adopat)    
