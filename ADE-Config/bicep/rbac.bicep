@@ -1,4 +1,4 @@
-param principalId string = '40bd80a7-9af9-4bdf-a8b3-ed0c667a2fcc'
+param principalId string = '0afc90a4-ea9c-422b-bace-b313bf20953b'
 
 @description('This is the built-in Contributor role. See https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor')
 resource contributorRoleDefinition 'Microsoft.Authorization/roleDefinitions@2018-01-01-preview' existing = {
