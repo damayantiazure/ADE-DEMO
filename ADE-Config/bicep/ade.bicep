@@ -3,8 +3,8 @@ param location string = resourceGroup().location
 param devcenterName string = 'devcenterdemo'
 param environmentName string = 'sandbox'
 param projectTeamName string = 'developers'
-param catalogName string = 'dcc'
-param catalogRepoUri string = 'https://dev.azure.com/damayantibhuyan/customerPOCs/_git/ade-demo'
+param catalogName string = 'catalog'
+param catalogRepoUri string = 'https://dev.azure.com/damayantib/customerpoc/_git/ade-demo'
 param adeProjectUser string = ''
 
 @secure()
