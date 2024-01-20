@@ -54,14 +54,14 @@ steps:
       
       az deployment group create -g $AZURE_RESOURCE_GROUP -f ADE-Config/bicep/ade.bicep -p devcenterName=$DEVCENTERNAME catalogRepoUri=$CATALOG_REPO catalogRepoPat=$adopat adeProjectUser=$DEPLOYINGUSERID
       
-      # AZURE_DEVCENTER_PRINCIPAL_ID=DCNAME.Identity.principalId
-      # AZURE_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+      AZURE_DEVCENTER_PRINCIPAL_ID=$(az resource list -n $DEVCENTERNAME --query [*].identity.principalId --out tsv)
+      AZURE_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 
-      # az role assignment create \
-      #   --scope /subscriptions/$AZURE_SUBSCRIPTION_ID \
-      #   --role Owner \
-      #   --assignee-object-id $AZURE_DEVCENTER_PRINCIPAL_ID \
-      #   --assignee-principal-type ServicePrincipal
+      az role assignment create \
+        --scope /subscriptions/$AZURE_SUBSCRIPTION_ID \
+        --role Owner \
+        --assignee-object-id $AZURE_DEVCENTER_PRINCIPAL_ID \
+        --assignee-principal-type ServicePrincipal
 
       # DEVUSER=user@contoso.com
       # DEVUSERID=$(az ad user show --id $DEVUSER --query id -o tsv)
