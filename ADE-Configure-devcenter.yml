@@ -9,7 +9,7 @@ trigger:
 variables:  
   #- group: ade-variables  
   LOCATION: "westeurope"
-  AZURE_RESOURCE_GROUP: "ade-rg"
+  AZURE_RESOURCE_GROUP: "ade-rg1"
   AZURE_DEVCENTER: "devbox001"
   AZURE_PROJECT: ""
   AZURE_KEYVAULT: ""
@@ -38,7 +38,7 @@ steps:
       
       #Get the deploying users id for RBAC assignments
       #DEPLOYINGUSERID=$(az ad signed-in-user show --query id -o tsv)
-      DEPLOYINGUSERID='40bd80a7-9af9-4bdf-a8b3-ed0c667a2fcc'
+      DEPLOYINGUSERID='0afc90a4-ea9c-422b-bace-b313bf20953b'
             
       #Create resource group
       az group create -n $AZURE_RESOURCE_GROUP -l westeurope
